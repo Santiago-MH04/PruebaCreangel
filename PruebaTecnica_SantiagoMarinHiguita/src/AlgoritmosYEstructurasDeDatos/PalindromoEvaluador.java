@@ -17,7 +17,7 @@ public class PalindromoEvaluador {
 
         int cuentaImpares = 0;
         Character charMediana = null;
-        StringBuilder mediana = new StringBuilder();
+        StringBuilder mitadSecuencia = new StringBuilder();
 
         // Verificar posibilidad y construir mitad del palíndromo
         for (Map.Entry<Character, Integer> entry : freqMap.entrySet()) {
@@ -32,14 +32,14 @@ public class PalindromoEvaluador {
 
             // Agregar la primera mitad de los caracteres
             for (int i = 0; i < frecuencia / 2; i++) {
-                mediana.append(ch);
+                mitadSecuencia.append(ch);
             }
         }
 
         // Agregar la segunda mitad de los caracteres y construir palíndromo completo
-        StringBuilder palindrome = new StringBuilder(mediana);
+        StringBuilder palindrome = new StringBuilder(mitadSecuencia);
         if (charMediana != null) palindrome.append(charMediana);
-        palindrome.append(new StringBuilder(mediana).reverse());
+        palindrome.append(new StringBuilder(mitadSecuencia).reverse());
 
         return palindrome.toString();
     }
